@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import Separator
 
+# from API.custom_query import custom_query
 from API.query_1 import query_1
 from API.query_2 import query_2
 from API.query_3 import query_3
@@ -89,7 +90,15 @@ class query_menu_frame(Frame):
             return
         self.make_table(ret, parent)
 
-
+    # def query_custom(self, parent, query):
+    #     ret = custom_query().run(query)
+    #     if isinstance(ret, str):
+    #         if ret.startswith('Error'):
+    #             messagebox.showerror("Custom Query", ret)
+    #         else:
+    #             messagebox.showinfo("Custom Query", ret)
+    #         return
+    #     self.make_table(ret, parent)
 
     def __init__(self, parent):
         button_style = {
@@ -140,6 +149,12 @@ class query_menu_frame(Frame):
 
         nav.pack(anchor='n',side=TOP)
 
-        customContainer = Frame(self)
+        # customContainer = Frame(self)
+        # customContainer.configure(bg="#A4161A")
+        # ce = Entry(customContainer,font=("Bebas Neue", 10, "bold"), bg="#A4161A")
+        # ce.pack(side=LEFT, fill=X, expand=1)
 
-        customContainer.pack(anchor='n',side=TOP)
+        # qc = Button(customContainer, text="Run Custom Query", command=lambda: self.query_custom(tableContainer, ce.get()), **button_style)
+        # qc.pack(side=RIGHT)
+
+        # customContainer.pack(anchor='n',side=TOP)
