@@ -12,17 +12,21 @@ class GUI:
             "main_menu": main_menu_frame,
             "query_menu": query_menu_frame
         }
+        
+
+
 
     def switchFrame(self, frameName):
         f = self.childrenFrames[frameName]
         if self.currentFrame is not None:
             self.currentFrame.pack_forget()
         self.currentFrame = f(self)
+        self.currentFrame.configure(bg="#292b2b")
         self.currentFrame.pack()
 
     def createMainWindow(self):
         self.main.title("Cinematico")
-
+        self.main.iconbitmap(r"C:\Users\Yanny\repos\Cinematico\public\logo.ico")  
         w = 1280
         h = 720
         ws = self.main.winfo_screenwidth()
@@ -33,5 +37,6 @@ class GUI:
         self.main.resizable(False,False)
 
         self.currentFrame = main_menu_frame(self)
+        self.currentFrame.configure(bg="#292b2b")
         self.currentFrame.pack()
         self.main.mainloop()

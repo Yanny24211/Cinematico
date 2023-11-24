@@ -49,27 +49,40 @@ class main_menu_frame(Frame):
         self.config(width=1280, height=720)
         self.parent = parent
 
-        choices = Frame(self)
+        button_style = {
+            'bg': '#A4161A',  # Background color
+            'fg': '#D3D3D3',    # Foreground color (text color)
+            'font': ("Bebas Neue", 15, "bold"),  # Font style and size
+            'padx': 10,       # Horizontal padding
+            'pady': 5         # Vertical padding
+        }
 
-        heading = Label(choices, text="Cinematico Movie Store\n\nActions", font=("Arial Bold", 25), pady=10)
+        choices = Frame(self)
+        choices.configure(bg="#292b2b")
+        choices.pack()
+
+        heading = Label(choices, text="Cinematico Movie Store\n\n", font=("Bebas Neue", 40, "bold"), pady=10, bg="#292b2b", fg="#D3D3D3")
         heading.pack(side=TOP)
 
-        ct = Button(choices, text="Create Tables", command=lambda: self.create_tables())
+        # subheading = Label(choices, text="Actions\n", font=("Bebas Neue", 15, "bold"), bg="#292b2b", fg="#D3D3D3")
+        # subheading.pack(side=TOP)
+
+        ct = Button(choices, text="Create Tables", command=lambda: self.create_tables(), **button_style)
         ct.pack(side=LEFT)
 
-        cv = Button(choices, text="Create Views", command=lambda: self.create_views())
+        cv = Button(choices, text="Create Views", command=lambda: self.create_views(), **button_style)
         cv.pack(side=LEFT)
 
-        dt = Button(choices, text="Drop Tables", command=lambda: self.drop_tables())
+        dt = Button(choices, text="Drop Tables", command=lambda: self.drop_tables(), **button_style)
         dt.pack(side=LEFT)
 
-        dv = Button(choices, text="Drop Views", command=lambda: self.drop_views())
+        dv = Button(choices, text="Drop Views", command=lambda: self.drop_views(), **button_style)
         dv.pack(side=LEFT)
 
-        pt = Button(choices, text="Populate Tables", command=lambda: self.populate_tables())
+        pt = Button(choices, text="Populate Tables", command=lambda: self.populate_tables(), **button_style)
         pt.pack(side=LEFT)
 
-        buttonQ = Button(choices, text="Queries", command=lambda: parent.switchFrame("query_menu"))
+        buttonQ = Button(choices, text="Queries", command=lambda: parent.switchFrame("query_menu"), **button_style)
         buttonQ.pack(side=LEFT)
 
         choices.place(relx=0.5, rely=0.33, anchor="center")
